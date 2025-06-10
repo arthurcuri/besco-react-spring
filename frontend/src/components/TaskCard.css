@@ -1,0 +1,157 @@
+.task-card {
+  background: #2a2a2a;
+  border: 1px solid #404040;
+  border-radius: 8px;
+  padding: 16px;
+  transition: all 0.2s ease;
+  position: relative;
+  border-left: 3px solid #606060;
+}
+
+.task-card:hover {
+  border-color: #606060;
+  transform: translateY(-1px);
+}
+
+.task-card.dragging {
+  opacity: 0.6;
+  transform: rotate(2deg);
+}
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 5;
+}
+
+.task-drag-area {
+  flex: 1;
+  cursor: grab;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.task-drag-area:active {
+  cursor: grabbing;
+}
+
+.task-content {
+  cursor: grab;
+}
+
+.task-content:active {
+  cursor: grabbing;
+}
+
+.task-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.4;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer !important;
+  font-size: 1.2rem;
+  padding: 8px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  opacity: 0.6;
+  z-index: 1000;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  min-height: 32px;
+  flex-shrink: 0;
+}
+
+.delete-btn:hover {
+  opacity: 1;
+  background: #4a2a2a;
+  cursor: pointer !important;
+}
+
+.delete-btn:active {
+  transform: scale(0.95);
+  background: #5a2a2a;
+}
+
+.task-description {
+  margin: 0 0 12px 0;
+  color: #b0b0b0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.task-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.status-badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-pending {
+  background: #404040;
+  color: #e0e0e0;
+}
+
+.status-progress {
+  background: #404040;
+  color: #e0e0e0;
+}
+
+.status-completed {
+  background: #404040;
+  color: #e0e0e0;
+}
+
+.task-date {
+  color: #808080;
+  font-size: 0.8rem;
+}
+
+.drag-handle {
+  position: absolute;
+  top: 50%;
+  right: 40px;
+  transform: translateY(-50%);
+  color: #606060;
+  font-size: 1.2rem;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.task-card:hover .drag-handle {
+  opacity: 0.3;
+} 
+
+.task-card:has(.status-pending) {
+  border-left: 3px solid #0051ff;
+}
+
+.task-card:has(.status-progress) {
+  border-left: 3px solid #ffa500;
+}
+
+.task-card:has(.status-completed) {
+  border-left: 3px solid #00ff00;
+}
